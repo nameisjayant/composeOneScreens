@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Compose Projects</string>
+    <string name="good_evening">Good Evening!</string>
+    <string name="jayant_kumar">Jayant Kumar</string>
+    <string name="my_weekly_task">My Weekly Tasks</string>
+    <string name="_10_task_pending">10 Task Pending</string>
+</resources>
