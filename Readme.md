@@ -2,6 +2,6 @@
 
 <p> In this repository we will design one screen page uis with jetpack compose. </p>
 
-#### [Task Management UI](https://github.com/nameisjayant/composeOneScreens/blob/main/app/src/main/java/com/nameisjayant/composeprojects/features/screens/TaskManagementScreen.kt)
+### [Task Management UI](https://github.com/nameisjayant/composeOneScreens/blob/main/app/src/main/java/com/nameisjayant/composeprojects/features/screens/TaskManagementScreen.kt)
 
-<img src="screenshots/taskManagement.png" height="400" alt="task_management"/>
+<p align="center"><img src="screenshots/taskManagement.png" height="400" alt="task_management"/></p>
