@@ -1,5 +1,6 @@
 package com.nameisjayant.composeprojects.ui.theme
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 val Purple80 = Color(0xFFD0BCFF)
@@ -22,3 +23,18 @@ val VoiletColor = Color(0XFF577CFF)
 val YellowColor = Color(0XFFFFB057)
 val BackgroundColor = Color(0XFFF5F5F5)
 val DarkGrayColor = Color(0XFFDFDFDF)
+
+// NFT Mobile Colors
+val NFTGradient1 = Color(0XFF330a5a)
+val NFTGradient2 = Color(0XFF080f22)
+val NFTGradient3 = Color(0XFF091323)
+val NFTBlueColor = Color(0XFF121F33)
+val NFTGrayColor = Color(0XFFCFD8E6)
+val NFTDarkBlueColor = Color(0XFF384A66)
+val NFTBorderColor = Color(0XFFCFD8E6)
+val NFTDarkPinkColor = Color(0XFF8900ff)
+val NFTLightPinkColor = Color(0XFFb800ff)
+val NFTSectionColor = Brush.verticalGradient(listOf(NFTDarkPinkColor, NFTLightPinkColor))
+val NFTBackgroundColor = Brush.verticalGradient(
+    listOf(NFTGradient1, NFTGradient2, NFTGradient3)
+)
