@@ -4,4 +4,12 @@
     <string name="jayant_kumar">Jayant Kumar</string>
     <string name="my_weekly_task">My Weekly Tasks</string>
     <string name="_10_task_pending">10 Task Pending</string>
+    <string name="today_s_task">Today\'s Tasks</string>
+    <string name="ui_ux_design">UI/UX Design</string>
+    <string name="high">High</string>
+    <string name="create_a_personal_portfolio">Create a Personal Portfolio</string>
+    <string name="mon_15_feb_2024">Mon, 15 feb 2024</string>
+    <string name="_3">3+</string>
+    <string name="design_3_app_screens">Design 3 App Screens</string>
+    <string name="learning_platform_app">Learning platform App</string>
 </resources>
