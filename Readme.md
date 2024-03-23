@@ -4,4 +4,4 @@
 
 ### [Task Management UI](https://github.com/nameisjayant/composeOneScreens/blob/main/app/src/main/java/com/nameisjayant/composeprojects/features/screens/TaskManagementScreen.kt)
 
-<p align="center"><img src="screenshots/taskManagement.png" height="400" alt="task_management"/></p>
+<p align="center"><img src="screenshots/taskManagement.png" height="500" alt="task_management"/></p>
