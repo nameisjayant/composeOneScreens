@@ -1,6 +1,6 @@
 ## Jetpack Compose One Screen Page UIS
 
-<p> In this repository we will design one screen page UIS with Jetpack Compose.</p>
+<p> Aim of this repository is to design one screen page UIS with Jetpack Compose (more focus on complex ui's).</p>
 
 ### 🖥️ Screenshots
 
@@ -16,6 +16,12 @@
     <td><img src="screenshots/electric_car.png" height="500" alt="electric+_car"/></td>
   </tr>
 </table>
+
+### Packages
+
+- `components`: Includes all the common components here.
+- `feature`: For including any UI.
+    - `screens` : Includes any single screen UI.
 
 ## Find this project useful ? ❤️
 
