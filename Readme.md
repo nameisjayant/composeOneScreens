@@ -16,6 +16,14 @@
     <td><img src="screenshots/electric_car.png" height="500" alt="electric+_car"/></td>
   </tr>
 </table>
+<table style="width:100%">
+  <tr>
+    <th>Chat UI</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/chat.png" height="500" alt="chat_ui"/></td>
+  </tr>
+</table>
 
 ### Packages
 

@@ -37,4 +37,11 @@
     <string name="find_stations">Find Stations</string>
     <string name="check_milage">Check Milage</string>
     <string name="_20_000_km">20,000 Km</string>
+    <string name="hello">Hello</string>
+    <string name="david">David 👋</string>
+    <string name="search">Search</string>
+    <string name="_4">+4</string>
+    <string name="typing">Typing....</string>
+    <string name="_6">6</string>
+    <string name="product_design">Product Design</string>
 </resources>

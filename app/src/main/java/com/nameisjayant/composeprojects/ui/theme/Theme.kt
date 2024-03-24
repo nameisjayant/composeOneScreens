@@ -10,6 +10,7 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -60,8 +61,11 @@ fun ComposeProjectsTheme(
             // NTF status color
           //  window.statusBarColor = NFTGradient1.toArgb()
 
-            // Electric car status Color
-            window.statusBarColor = ElectricBackgroundColor.toArgb()
+//            // Electric car status Color
+//            window.statusBarColor = ElectricBackgroundColor.toArgb()
+
+            // chat screen status Color
+            window.statusBarColor = Color.White.toArgb()
 
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }

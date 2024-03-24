@@ -529,7 +529,6 @@ private fun ElectricHeaderRow(
         Row(modifier = Modifier.weight(1f)) {
             Box(
                 modifier = modifier
-                    .background(Color.Transparent, CircleShape)
                     .border(
                         2.dp,
                         ElectricLightGreen, CircleShape
