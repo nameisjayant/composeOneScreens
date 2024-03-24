@@ -47,3 +47,12 @@ val ElectricDarkGrayColor = Color(0XFF6e7474)
 val ElectricGradientBackground = Brush.verticalGradient(
     listOf(ElectricBackgroundColor, Color(0XFF0c1615))
 )
+
+// Chat Screen Colors
+val ChatRedColor = Color(0XFFEB5757)
+val ChatDarkColor = Color(0XFF1a1b2f)
+val ChatLightPink = Color(0XFFa4a5c8)
+val ChatGrayColor = Color(0XFFF8F8FA)
+val ChatDarkBlue = Color(0XFF197AFA)
+val ChatLightBlue = Color(0XFF4C80EA)
+val ChatBlue = Color(0XFF3063f7)
