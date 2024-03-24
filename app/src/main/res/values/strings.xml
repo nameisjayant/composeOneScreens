@@ -24,4 +24,17 @@
     <string name="_360_km">360</string>
     <string name="km">Km</string>
     <string name="total_charge">Total Charge</string>
+    <string name="battery">Battery</string>
+    <string name="_80">80</string>
+    <string name="_percetange">%</string>
+    <string name="saving_mode">Saving mode</string>
+    <string name="tyre_pressure">Tyre Pressure</string>
+    <string name="tyre_3">Tyre 3</string>
+    <string name="_36">36</string>
+    <string name="psi">PSI</string>
+    <string name="optimum">Optimum</string>
+    <string name="total_distance">Total Distance</string>
+    <string name="find_stations">Find Stations</string>
+    <string name="check_milage">Check Milage</string>
+    <string name="_20_000_km">20,000 Km</string>
 </resources>
