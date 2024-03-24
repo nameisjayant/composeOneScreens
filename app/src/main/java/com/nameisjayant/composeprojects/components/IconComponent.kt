@@ -17,9 +17,9 @@ fun AppIcon(
     tint: Color = Color.Unspecified
 ) {
     icon?.let {
-        Icon(painter = painterResource(id = it), contentDescription = null, modifier, tint)
+        Icon(painter = painterResource(id = it), contentDescription = null, modifier=modifier, tint=tint)
     }
     imageVector?.let {
-        Icon(imageVector = it, contentDescription = null, modifier, tint)
+        Icon(imageVector = it, contentDescription = null,modifier=modifier, tint=tint)
     }
 }

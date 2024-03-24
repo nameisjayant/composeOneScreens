@@ -38,3 +38,15 @@ val NFTSectionColor = Brush.verticalGradient(listOf(NFTDarkPinkColor, NFTLightPi
 val NFTBackgroundColor = Brush.verticalGradient(
     listOf(NFTGradient1, NFTGradient2, NFTGradient3)
 )
+
+// Electric Car Colors
+val ElectricBackgroundColor = Color(0XFF182724)
+val ElectricLightGreen = Color(0XFF09d8b9)
+val ElectricLightGreen100 = Color(0XFF039d87)
+val ElectricDarkGreen = Color(0XFF1A2B27)
+val ElectricGrayColor = Color(0XFFFBFFFE)
+val ElectricDarkGrayColor = Color(0XFF6e7474)
+
+val ElectricGradientBackground = Brush.verticalGradient(
+    listOf(ElectricBackgroundColor, Color(0XFF0c1615))
+)

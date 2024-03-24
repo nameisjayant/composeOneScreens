@@ -57,7 +57,12 @@ fun ComposeProjectsTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = NFTGradient1.toArgb()
+            // NTF status color
+          //  window.statusBarColor = NFTGradient1.toArgb()
+
+            // Electric car status Color
+            window.statusBarColor = ElectricBackgroundColor.toArgb()
+
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

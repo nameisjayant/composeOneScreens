@@ -19,4 +19,9 @@
     <string name="latest_collection">Latest Collection</string>
     <string name="cool_looking_app">Cool Looking App</string>
     <string name="digicore">Digicore</string>
+    <string name="tesla_roadster">Tesla Roadster</string>
+    <string name="olivia_smith">Olivia Smith</string>
+    <string name="_360_km">360</string>
+    <string name="km">Km</string>
+    <string name="total_charge">Total Charge</string>
 </resources>
