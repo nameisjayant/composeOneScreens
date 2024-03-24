@@ -8,10 +8,12 @@
   <tr>
     <th>Task Management UI</th>
     <th>NFT Mobile</th>
+    <th>Electric Car</th>
   </tr>
   <tr>
-    <td><img src="screenshots/taskManagement.png" height="600" alt="task_management"/></td>
-    <td><img src="screenshots/NFT.png" height="600" alt="nft_mobile"/></td>
+    <td><img src="screenshots/taskManagement.png" height="500" alt="task_management"/></td>
+    <td><img src="screenshots/NFT.png" height="500" alt="nft_mobile"/></td>
+    <td><img src="screenshots/electric_car.png" height="500" alt="electric+_car"/></td>
   </tr>
 </table>
 
