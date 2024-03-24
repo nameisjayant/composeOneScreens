@@ -56,7 +56,7 @@ fun NFTMobileScreen() {
         header = { NFTHeader() },
         selection = { NFTSelection() },
         section = { nftSectionRow() },
-        collections = { collectionRow() }
+        collections = { collectionList() }
     )
 }
 
@@ -83,10 +83,18 @@ private fun NTFMobileRow(
     }
 }
 
-private fun LazyListScope.collectionRow(
+
+private fun LazyListScope.collectionList() {
+    items(5) {
+        CollectionRow()
+    }
+}
+
+@Composable
+private fun CollectionRow(
     modifier: Modifier = Modifier
 ) {
-    item {
+    Column(modifier = modifier.padding(bottom = 16.dp)) {
         SpacerHeight(24.dp)
         Text(
             text = stringResource(R.string.latest_collection),
@@ -98,7 +106,7 @@ private fun LazyListScope.collectionRow(
         )
         SpacerHeight(24.dp)
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .background(Color.Transparent, RoundedCornerShape(16.dp))
                 .border(
                     1.dp,
@@ -133,23 +141,7 @@ private fun LazyListScope.collectionRow(
                     ),
                     modifier = Modifier.weight(1f)
                 )
-                Row(
-                    verticalAlignment = Alignment.CenterVertically, modifier = Modifier
-                        .padding(16.dp)
-                        .background(Color(0XFF1d283a).copy(0.33f), CircleShape)
-                        .border(1.dp, NFTGrayColor.copy(alpha = 0.33f), CircleShape)
-                        .padding(vertical = 12.dp, horizontal = 16.dp)
-                ) {
-                    Text(
-                        text = stringResource(R.string._320),
-                        style = androidx.compose.material3.LocalTextStyle.current.copy(
-                            fontFamily = montserratFont,
-                            color = NFTGrayColor
-                        )
-                    )
-                    SpacerWidth()
-                    AppIcon(icon = R.drawable.heart)
-                }
+                LikeRow(isBorder = true, bg = Color(0XFF1d283a).copy(0.33f))
             }
         }
     }
@@ -166,23 +158,7 @@ private fun LazyListScope.nftSectionRow(
                 .background(NFTSectionColor, RoundedCornerShape(35.dp))
                 .fillMaxWidth()
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically, modifier = Modifier
-                    .padding(16.dp)
-                    .background(Color(0XFF700eca).copy(0.33f), RoundedCornerShape(16.dp))
-                    .padding(vertical = 12.dp, horizontal = 16.dp)
-                    .align(Alignment.TopEnd)
-            ) {
-                Text(
-                    text = stringResource(R.string._320),
-                    style = androidx.compose.material3.LocalTextStyle.current.copy(
-                        fontFamily = montserratFont,
-                        color = NFTGrayColor
-                    )
-                )
-                SpacerWidth()
-                AppIcon(icon = R.drawable.heart)
-            }
+            LikeRow(modifier = Modifier.align(Alignment.TopEnd))
             Image(
                 painter = painterResource(id = R.drawable.monkey),
                 contentDescription = null,
@@ -227,6 +203,36 @@ private fun LazyListScope.nftSectionRow(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun LikeRow(
+    modifier: Modifier = Modifier,
+    isBorder: Boolean = false,
+    bg: Color = Color(0XFF700eca).copy(0.33f)
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically, modifier = modifier
+            .padding(if (isBorder) 0.dp else 16.dp)
+            .background(bg, RoundedCornerShape(16.dp))
+            .border(
+                1.dp,
+                if (isBorder) NFTGrayColor.copy(alpha = 0.33f) else Color.Transparent,
+                CircleShape
+            )
+            .padding(vertical = 12.dp, horizontal = 16.dp)
+
+    ) {
+        Text(
+            text = stringResource(R.string._320),
+            style = androidx.compose.material3.LocalTextStyle.current.copy(
+                fontFamily = montserratFont,
+                color = NFTGrayColor
+            )
+        )
+        SpacerWidth()
+        AppIcon(icon = R.drawable.heart)
     }
 }
 
