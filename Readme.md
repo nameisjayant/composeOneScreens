@@ -21,7 +21,7 @@
     <th>Chat UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/chat.png.png" height="500" alt="task_management"/></td>
+    <td><img src="screenshots/chat.png" height="500" alt="chat_ui"/></td>
   </tr>
 </table>
 
