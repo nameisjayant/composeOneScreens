@@ -7,8 +7,8 @@
 <table style="width:100%">
   <tr>
     <th>Task Management UI</th>
-    <th>NFT Mobile</th>
-    <th>Electric Car</th>
+    <th>NFT Mobile UI</th>
+    <th>Electric Car Charging UI</th>
   </tr>
   <tr>
     <td><img src="screenshots/taskManagement.png" height="500" alt="task_management"/></td>
