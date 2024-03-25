@@ -1,4 +1,4 @@
-## Jetpack Compose One Screen Page UIS
+## Jetpack Compose Single Screen Page UIS
 
 <p> Aim of this repository is to design single screen page UIS with Jetpack Compose (mainly focus on the complex ui's).</p>
 
