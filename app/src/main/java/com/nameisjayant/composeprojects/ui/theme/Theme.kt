@@ -59,13 +59,17 @@ fun ComposeProjectsTheme(
         SideEffect {
             val window = (view.context as Activity).window
             // NTF status color
-          //  window.statusBarColor = NFTGradient1.toArgb()
+            //  window.statusBarColor = NFTGradient1.toArgb()
 
 //            // Electric car status Color
 //            window.statusBarColor = ElectricBackgroundColor.toArgb()
 
-            // chat screen status Color
-            window.statusBarColor = Color.White.toArgb()
+//            // chat screen status Color
+//            window.statusBarColor = Color.White.toArgb()
+
+            // instagram home screen status color
+            window.statusBarColor = InstagramBlack.toArgb()
+
 
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
