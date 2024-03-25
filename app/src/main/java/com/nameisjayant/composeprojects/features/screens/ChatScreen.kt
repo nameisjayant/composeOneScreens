@@ -120,15 +120,21 @@ private fun ChattingRow(
                 Box {
                     AppIcon(icon = chat.image, modifier = Modifier.size(54.dp))
                     if (chat.isOnline)
-                        Spacer(
+                        Box(
                             modifier = Modifier
-                                .background(
-                                    color = Color(0XFF5AE558),
-                                    CircleShape
-                                )
-                                .size(10.dp)
+                                .background(Color.White, CircleShape)
+                                .padding(3.dp)
                                 .align(Alignment.BottomEnd)
-                        )
+                        ) {
+                            Spacer(
+                                modifier = Modifier
+                                    .background(
+                                        color = Color(0XFF5AE558),
+                                        CircleShape
+                                    )
+                                    .size(10.dp)
+                            )
+                        }
                 }
             } else {
                 FlowRow(
@@ -208,7 +214,10 @@ private fun ChattingRow(
                     )
                 }
             else
-                AppIcon(icon = R.drawable.double_tick, tint = if(chat.receive) Color.Unspecified else ChatLightPink)
+                AppIcon(
+                    icon = R.drawable.double_tick,
+                    tint = if (chat.receive) Color.Unspecified else ChatLightPink
+                )
         }
     }
 }
@@ -247,8 +256,8 @@ private fun StoryRow(
     chat: ChatModal
 ) {
     Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier.padding(end = 16.dp)
+        modifier = modifier.padding(end = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = Modifier
@@ -390,7 +399,8 @@ val chatModalList = listOf(
         R.drawable.man,
         message = "When the meeting is Schedule",
         time = "12:35",
-        isDoubleTick = true
+        isDoubleTick = true,
+        isOnline = true
     ),
     ChatModal(
         2,
