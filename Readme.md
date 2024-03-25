@@ -2,12 +2,12 @@
 
 <p> Aim of this repository is to design single screen page UIS with Jetpack Compose (mainly focus on the complex ui's).</p>
 
-### Purpose
+## Purpose
 
 - Purpose of making this repository is to learn how to make or write complex ui screen codes in jetpack compose.
 - It also focus on the clean and reusable codes.
 
-### 🖥️ Screenshots
+## 🖥️ Screenshots
 
 <table style="width:100%">
   <tr>
@@ -32,13 +32,13 @@
   </tr>
 </table>
 
-### Packages
+## Packages
 
 - `components`: Includes all the common components here.
 - `feature`: For including any UI.
     - `screens` : Includes any single screen UI.
 
-### How to Contribute
+## How to Contribute
 
 - If you have any single page complex screen UI , you are most welcome.
 
