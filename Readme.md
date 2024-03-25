@@ -19,9 +19,11 @@
 <table style="width:100%">
   <tr>
     <th>Chat UI</th>
+   <th>Instagram Home UI</th>
   </tr>
   <tr>
     <td><img src="screenshots/chat.png" height="500" alt="chat_ui"/></td>
+    <td><img src="screenshots/instagram.png" height="500" alt="insta_ui"/></td>
   </tr>
 </table>
 
