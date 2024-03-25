@@ -56,3 +56,11 @@ val ChatGrayColor = Color(0XFFF8F8FA)
 val ChatDarkBlue = Color(0XFF197AFA)
 val ChatLightBlue = Color(0XFF4C80EA)
 val ChatBlue = Color(0XFF3063f7)
+
+// Instagram UI Color
+
+val InstagramBlack = Color(0XFF121212)
+val InstaWhite = Color(0XFFF9F9F9)
+val InstaBlue = Color(0XFF3897F0)
+val InstaGray = Color(0XFF545454)
+val InstaDark = Color(0XFF162326)
