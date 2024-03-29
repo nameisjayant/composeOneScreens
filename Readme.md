@@ -42,6 +42,7 @@
     <td><img src="screenshots/twitter_profile.png" height="500" alt="twitter_profile_ui"/></td>
   </tr>
 </table>
+
 ## Packages
 
 - `components`: Includes all the common components here.
