@@ -25,10 +25,12 @@
   <tr>
     <th>Chat UI</th>
    <th>Instagram Home UI</th>
+   <th>Timer UI</th>
   </tr>
   <tr>
     <td><img src="screenshots/chat.png" height="500" alt="chat_ui"/></td>
     <td><img src="screenshots/instagram.png" height="500" alt="insta_ui"/></td>
+   <td><img src="screenshots/Timer.png" height="500" alt="timer_ui"/></td>
   </tr>
 </table>
 

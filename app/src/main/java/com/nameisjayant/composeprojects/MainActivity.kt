@@ -8,6 +8,7 @@ import com.nameisjayant.composeprojects.features.screens.ElectricCarScreen
 import com.nameisjayant.composeprojects.features.screens.InstagramHomeScreen
 import com.nameisjayant.composeprojects.features.screens.NFTMobileScreen
 import com.nameisjayant.composeprojects.features.screens.TaskManagementScreen
+import com.nameisjayant.composeprojects.features.screens.TimerScreen
 import com.nameisjayant.composeprojects.ui.theme.ComposeProjectsTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeProjectsTheme {
-               InstagramHomeScreen()
+               TimerScreen()
             }
         }
     }
