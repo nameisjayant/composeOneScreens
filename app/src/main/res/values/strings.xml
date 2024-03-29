@@ -58,4 +58,15 @@
     <string name="pause">Pause</string>
     <string name="stop">Stop</string>
     <string name="_32_10">32:10</string>
+    <string name="digital_goodies_team">Digital Goodies Team</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="pixsellz">Pixsellz</string>
+    <string name="pixsellz__">\@pixsellz</string>
+    <string name="digital_goodies_team_web_mobile_ui_ux_development_graphics_illustrations"><![CDATA[Digital Goodies Team - Web & Mobile UI/UX development; Graphics; Illustrations]]></string>
+    <string name="pixsellz_io">pixsellz.io</string>
+    <string name="joined_september_2018">Joined September 2018</string>
+    <string name="_217">217</string>
+    <string name="following">Following</string>
+    <string name="_118">118</string>
+    <string name="followers">Followers</string>
 </resources>
