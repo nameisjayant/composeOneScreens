@@ -74,3 +74,11 @@ val TimerGrayColor = Color(0XFF989898)
 val TimerLinearGradient =Brush.linearGradient(
     listOf(Color.White,Color(0XFF7012CE),Color(0XFF7012CE))
 )
+
+// Twitter Profile Colors
+val TwitterBg = Color(0XFF1F1F1F)
+val TwitterText = Color(0XFF141619)
+val TwitterGray = Color(0XFF687684)
+val TwitterBlue = Color(0XFF4C9EEB)
+val TwitterBlack = Color(0XFF0F0F0F)
+val TwitterDarkGray = Color(0XFFDEDEDE)

@@ -70,8 +70,11 @@ fun ComposeProjectsTheme(
 //            // instagram home screen status color
 //            window.statusBarColor = InstagramBlack.toArgb()
 
-            // Timer home screen status color
+            // Timer Screen status color
             window.statusBarColor = TimerDarkColor.toArgb()
+
+            // Twitter Profile Screen status color
+            window.statusBarColor = TwitterBg.toArgb()
 
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
