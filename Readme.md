@@ -34,6 +34,14 @@
   </tr>
 </table>
 
+<table style="width:100%">
+  <tr>
+    <th>Twitter Profile UI</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/twitter_profile.png" height="500" alt="twitter_profile_ui"/></td>
+  </tr>
+</table>
 ## Packages
 
 - `components`: Includes all the common components here.
