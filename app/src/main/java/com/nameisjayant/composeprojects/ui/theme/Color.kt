@@ -64,3 +64,13 @@ val InstaWhite = Color(0XFFF9F9F9)
 val InstaBlue = Color(0XFF3897F0)
 val InstaGray = Color(0XFF545454)
 val InstaDark = Color(0XFF162326)
+
+// Timer Screen Colors
+val TimerDarkColor = Color(0XFF070417)
+val TimerDarkPurple = Color(0XFF1B143F)
+val TimerPinkColor = Color(0XFFFD5B71)
+val TimerLightDarkBlue = Color(0XFF292639)
+val TimerGrayColor = Color(0XFF989898)
+val TimerLinearGradient =Brush.linearGradient(
+    listOf(Color.White,Color(0XFF7012CE),Color(0XFF7012CE))
+)
