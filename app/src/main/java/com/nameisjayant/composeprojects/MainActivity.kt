@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeProjectsTheme {
-               TwitterProfileScreen()
+               TaskManagementScreen()
             }
         }
     }

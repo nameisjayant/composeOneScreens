@@ -309,7 +309,7 @@ private fun TabSection(
 @Composable
 private fun TabsContent(
     modifier: Modifier = Modifier,
-    isPinned:Boolean
+    isPinned: Boolean
 ) {
     var isShow by rememberSaveable { mutableStateOf(true) }
     Column(
@@ -321,20 +321,20 @@ private fun TabsContent(
         )
     ) {
         if (isPinned)
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(start = 40.dp)
-        ) {
-            AppIcon(icon = R.drawable.pinned, modifier = Modifier.size(12.dp))
-            SpacerWidth()
-            Text(
-                text = stringResource(R.string.pinned_tweet), style = TextStyle(
-                    color = TwitterGray,
-                    fontFamily = montserratFont,
-                    fontSize = 14.sp
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(start = 40.dp)
+            ) {
+                AppIcon(icon = R.drawable.pinned, modifier = Modifier.size(12.dp))
+                SpacerWidth()
+                Text(
+                    text = stringResource(R.string.pinned_tweet), style = TextStyle(
+                        color = TwitterGray,
+                        fontFamily = montserratFont,
+                        fontSize = 14.sp
+                    )
                 )
-            )
-        }
+            }
         Row {
             AppIcon(icon = R.drawable.profile_pic, modifier = Modifier.size(55.dp))
             SpacerWidth()
@@ -367,103 +367,103 @@ private fun TabsContent(
                         imageVector = Icons.Default.KeyboardArrowDown,
                         modifier = Modifier.size(16.dp),
                         tint = TwitterGray
-                    ){
+                    ) {
                         isShow = !isShow
                     }
                 }
-              AnimatedVisibility(visible = isShow) {
-                  Column {
-                      Text(
-                          text = stringResource(R.string.scheme_constructor_your_ultimate_prototyping_kit_for_all_ux_web_and_mobileepp_design),
-                          style = TextStyle(
-                              color = TwitterGray,
-                              fontFamily = montserratFont,
-                              fontSize = 16.sp,
-                          )
-                      )
-                      Text(
-                          text = stringResource(R.string.constructor_pixsellz_io),
-                          style = TextStyle(
-                              color = TwitterBlue,
-                              fontFamily = montserratFont,
-                              fontSize = 16.sp,
-                          )
-                      )
-                      SpacerHeight(30.dp)
-                      Text(
-                          text = stringResource(R.string.prototyping_wireframe_uiux_ux),
-                          style = TextStyle(
-                              color = TwitterBlue,
-                              fontFamily = montserratFont,
-                              fontSize = 16.sp,
-                          )
-                      )
-                      SpacerHeight()
-                      Box(modifier = Modifier.fillMaxWidth()) {
-                          Image(
-                              painter = painterResource(id = R.drawable.page_2),
-                              contentDescription = null,
-                              contentScale = ContentScale.FillWidth,
-                          )
-                          Text(
-                              text = stringResource(R.string._0_11),
-                              style = TextStyle(
-                                  color = Color.White,
-                                  fontFamily = montserratFont,
-                                  fontSize = 12.sp,
-                                  fontWeight = FontWeight.Medium
-                              ),
-                              modifier = Modifier
-                                  .padding(16.dp)
-                                  .align(Alignment.BottomStart)
-                          )
-                          AppIcon(icon = R.drawable.play, modifier = Modifier
-                              .size(30.dp)
-                              .align(Alignment.Center)
-                              .drawBehind {
-                                  drawCircle(
-                                      color = Color.White
-                                  )
-                                  drawCircle(
-                                      color = TwitterBlue,
-                                      radius = size.minDimension / 2.5f
-                                  )
-                              }
-                              .padding(10.dp))
-                      }
-                      SpacerHeight(5.dp)
-                      Text(
-                          text = stringResource(R.string._109_views),
-                          style = TextStyle(
-                              color = TwitterGray,
-                              fontFamily = montserratFont,
-                              fontSize = 14.sp,
-                          )
-                      )
-                      SpacerHeight(16.dp)
-                      Row(
-                          horizontalArrangement = Arrangement.spacedBy(40.dp)
-                      ) {
-                          TweetActions(
-                              icon = R.drawable.twitter_comment,
-                              title = stringResource(R.string._2)
-                          )
-                          TweetActions(
-                              icon = R.drawable.twitter_repost,
-                              title = stringResource(R.string._2)
-                          )
-                          TweetActions(
-                              icon = R.drawable.twitter_like,
-                              title = stringResource(R.string._15)
-                          )
-                          TweetActions(
-                              icon = R.drawable.twitter_share,
-                              title = null
-                          )
+                AnimatedVisibility(visible = isShow) {
+                    Column {
+                        Text(
+                            text = stringResource(R.string.scheme_constructor_your_ultimate_prototyping_kit_for_all_ux_web_and_mobileepp_design),
+                            style = TextStyle(
+                                color = TwitterGray,
+                                fontFamily = montserratFont,
+                                fontSize = 16.sp,
+                            )
+                        )
+                        Text(
+                            text = stringResource(R.string.constructor_pixsellz_io),
+                            style = TextStyle(
+                                color = TwitterBlue,
+                                fontFamily = montserratFont,
+                                fontSize = 16.sp,
+                            )
+                        )
+                        SpacerHeight(30.dp)
+                        Text(
+                            text = stringResource(R.string.prototyping_wireframe_uiux_ux),
+                            style = TextStyle(
+                                color = TwitterBlue,
+                                fontFamily = montserratFont,
+                                fontSize = 16.sp,
+                            )
+                        )
+                        SpacerHeight()
+                        Box(modifier = Modifier.fillMaxWidth()) {
+                            Image(
+                                painter = painterResource(id = R.drawable.page_2),
+                                contentDescription = null,
+                                contentScale = ContentScale.FillWidth,
+                            )
+                            Text(
+                                text = stringResource(R.string._0_11),
+                                style = TextStyle(
+                                    color = Color.White,
+                                    fontFamily = montserratFont,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.Medium
+                                ),
+                                modifier = Modifier
+                                    .padding(16.dp)
+                                    .align(Alignment.BottomStart)
+                            )
+                            AppIcon(icon = R.drawable.play, modifier = Modifier
+                                .size(30.dp)
+                                .align(Alignment.Center)
+                                .drawBehind {
+                                    drawCircle(
+                                        color = Color.White
+                                    )
+                                    drawCircle(
+                                        color = TwitterBlue,
+                                        radius = size.minDimension / 2.5f
+                                    )
+                                }
+                                .padding(10.dp))
+                        }
+                        SpacerHeight(5.dp)
+                        Text(
+                            text = stringResource(R.string._109_views),
+                            style = TextStyle(
+                                color = TwitterGray,
+                                fontFamily = montserratFont,
+                                fontSize = 14.sp,
+                            )
+                        )
+                        SpacerHeight(16.dp)
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(40.dp)
+                        ) {
+                            TweetActions(
+                                icon = R.drawable.twitter_comment,
+                                title = stringResource(R.string._2)
+                            )
+                            TweetActions(
+                                icon = R.drawable.twitter_repost,
+                                title = stringResource(R.string._2)
+                            )
+                            TweetActions(
+                                icon = R.drawable.twitter_like,
+                                title = stringResource(R.string._15)
+                            )
+                            TweetActions(
+                                icon = R.drawable.twitter_share,
+                                title = null
+                            )
 
-                      }
-                  }
-              }
+                        }
+                    }
+                }
             }
         }
     }

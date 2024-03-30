@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -55,7 +57,7 @@ fun NFTMobileScreen() {
     NTFMobileRow(
         header = { NFTHeader() },
         selection = { NFTSelection() },
-        section = { nftSectionRow() },
+        section = { NFTSectionRow() },
         collections = { collectionList() }
     )
 }
@@ -65,21 +67,20 @@ private fun NTFMobileRow(
     modifier: Modifier = Modifier,
     header: (@Composable () -> Unit)? = null,
     selection: (@Composable () -> Unit)? = null,
-    section: (LazyListScope.() -> Unit)? = null,
-    collections: (LazyListScope.() -> Unit)? = null
+    section: (@Composable () -> Unit)? = null,
+    collections: ( LazyListScope.() -> Unit)? = null
 ) {
-    Column(
+    LazyColumn(
         modifier = modifier
             .background(NFTBackgroundColor)
             .fillMaxSize()
-            .padding(20.dp)
     ) {
-        header?.invoke()
-        selection?.invoke()
-        LazyColumn {
-            section?.invoke(this)
-            collections?.invoke(this)
+        item {
+            header?.invoke()
+            selection?.invoke()
+            section?.invoke()
         }
+        collections?.invoke(this)
     }
 }
 
@@ -94,7 +95,7 @@ private fun LazyListScope.collectionList() {
 private fun CollectionRow(
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier.padding(bottom = 16.dp)) {
+    Column(modifier = modifier.padding(bottom = 16.dp, start = 20.dp, end = 20.dp)) {
         SpacerHeight(24.dp)
         Text(
             text = stringResource(R.string.latest_collection),
@@ -147,60 +148,59 @@ private fun CollectionRow(
     }
 }
 
-private fun LazyListScope.nftSectionRow(
+@Composable
+private fun NFTSectionRow(
     modifier: Modifier = Modifier
 ) {
-    item {
-        Box(
-            modifier = modifier
-                .padding(top = 30.dp, end = 16.dp, start = 16.dp)
-                .height(311.dp)
-                .background(NFTSectionColor, RoundedCornerShape(35.dp))
-                .fillMaxWidth()
+    Box(
+        modifier = modifier
+            .padding(top = 30.dp, end = 16.dp, start = 16.dp)
+            .height(311.dp)
+            .background(NFTSectionColor, RoundedCornerShape(35.dp))
+            .fillMaxWidth()
+    ) {
+        LikeRow(modifier = Modifier.align(Alignment.TopEnd))
+        Image(
+            painter = painterResource(id = R.drawable.monkey),
+            contentDescription = null,
+            contentScale = ContentScale.FillHeight,
+            modifier = Modifier
+                .height(280.dp)
+                .align(Alignment.BottomCenter)
+        )
+        Column(
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 20.dp)
+                .background(Color.Black.copy(0.66f), RoundedCornerShape(16.dp))
+                .padding(horizontal = 16.dp, vertical = 20.dp)
+                .align(Alignment.BottomCenter)
         ) {
-            LikeRow(modifier = Modifier.align(Alignment.TopEnd))
-            Image(
-                painter = painterResource(id = R.drawable.monkey),
-                contentDescription = null,
-                contentScale = ContentScale.FillHeight,
-                modifier = Modifier
-                    .height(280.dp)
-                    .align(Alignment.BottomCenter)
+            Text(
+                text = stringResource(R.string.ape_illustration),
+                style = MaterialTheme.typography.labelLarge.copy(
+                    fontFamily = kronaFont,
+                    color = NFTGrayColor
+                )
             )
-            Column(
-                modifier = Modifier
-                    .padding(horizontal = 16.dp, vertical = 20.dp)
-                    .background(Color.Black.copy(0.66f), RoundedCornerShape(16.dp))
-                    .padding(horizontal = 16.dp, vertical = 20.dp)
-                    .align(Alignment.BottomCenter)
-            ) {
+            SpacerHeight(16.dp)
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = stringResource(R.string.ape_illustration),
-                    style = MaterialTheme.typography.labelLarge.copy(
-                        fontFamily = kronaFont,
-                        color = NFTGrayColor
+                    text = stringResource(id = R.string.jayant_kumar),
+                    style = TextStyle(
+                        fontFamily = montserratFont,
+                        color = NFTGrayColor,
+                        fontSize = 10.sp
+                    ),
+                    modifier = Modifier.weight(1f)
+                )
+                Text(
+                    text = stringResource(R.string._0_20eth),
+                    style = TextStyle(
+                        fontFamily = montserratFont,
+                        color = NFTGrayColor,
+                        fontSize = 10.sp
                     )
                 )
-                SpacerHeight(16.dp)
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = stringResource(id = R.string.jayant_kumar),
-                        style = TextStyle(
-                            fontFamily = montserratFont,
-                            color = NFTGrayColor,
-                            fontSize = 10.sp
-                        ),
-                        modifier = Modifier.weight(1f)
-                    )
-                    Text(
-                        text = stringResource(R.string._0_20eth),
-                        style = TextStyle(
-                            fontFamily = montserratFont,
-                            color = NFTGrayColor,
-                            fontSize = 10.sp
-                        )
-                    )
-                }
             }
         }
     }
@@ -242,11 +242,14 @@ private fun NFTSelection(
 ) {
     val list = listOf("Trending", "Popular", "Following")
     var selected by remember { mutableIntStateOf(0) }
+    val scrollState = rememberScrollState()
     Row(
         modifier = modifier
             .padding(top = 24.dp)
             .fillMaxWidth()
+            .horizontalScroll(scrollState)
     ) {
+        SpacerWidth(20.dp)
         list.forEachIndexed { index, s ->
             SelectionRow(selected = index == selected, index = index, title = s, onValueChange = {
                 selected = it
@@ -286,7 +289,7 @@ private fun SelectionRow(
 private fun NFTHeader(
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier.padding(top = 20.dp)) {
+    Column(modifier = modifier.padding(top = 20.dp, start = 20.dp, end = 20.dp)) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),

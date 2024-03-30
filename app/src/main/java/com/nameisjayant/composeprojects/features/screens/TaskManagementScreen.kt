@@ -77,8 +77,7 @@ private fun TaskManagementRow(
         state = state,
         modifier = modifier
             .background(BackgroundColor)
-            .fillMaxSize(),
-        contentPadding = PaddingValues(20.dp)
+            .fillMaxSize()
     ) {
         item {
             header?.invoke()
@@ -95,11 +94,14 @@ fun LazyListScope.weeklyTaskRow(
         TaskHeaderRow(
             title = stringResource(id = R.string.my_weekly_task),
             des = stringResource(id = R.string._10_task_pending),
-            modifier = Modifier.padding(vertical = 30.dp)
+            modifier = Modifier.padding(top = 30.dp, bottom = 30.dp, start = 20.dp, end = 20.dp)
         )
     }
     item {
         LazyRow {
+            item {
+                SpacerWidth(20.dp)
+            }
             items(5) {
                 WeeklyRow()
             }
@@ -112,10 +114,10 @@ fun LazyListScope.todayTaskRow() {
         TaskHeaderRow(
             title = stringResource(id = R.string.today_s_task),
             des = stringResource(id = R.string._10_task_pending),
-            modifier = Modifier.padding(vertical = 30.dp)
+            modifier = Modifier.padding(top = 30.dp, bottom = 30.dp, start = 20.dp, end = 20.dp)
         )
     }
-    items(5){
+    items(5) {
         TodayRow()
     }
 
@@ -176,11 +178,11 @@ fun WeeklyRow(
 @Composable
 fun AssignIdsRow(
     modifier: Modifier = Modifier,
-    size:Dp = 36.dp,
-    offset:Int = 15
+    size: Dp = 36.dp,
+    offset: Int = 15
 
 ) {
-    Row (modifier = modifier, verticalAlignment = Alignment.CenterVertically){
+    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         repeat(3) {
             AppIcon(
                 icon = R.drawable.person, modifier = Modifier
@@ -217,7 +219,7 @@ fun TodayRow(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 16.dp)
+            .padding(bottom = 16.dp, start = 20.dp, end = 20.dp)
             .background(Color.White, RoundedCornerShape(20.dp))
             .padding(16.dp)
     ) {
@@ -257,19 +259,19 @@ fun TodayRow(
         HorizontalDivider(color = DarkGrayColor, thickness = 1.dp)
         SpacerHeight(16.dp)
         Row(verticalAlignment = Alignment.CenterVertically) {
-           Row(modifier = Modifier.weight(1f)) {
-               AppIcon(icon = R.drawable.calendar)
-               SpacerWidth(24.dp)
-               Text(
-                   text = stringResource(R.string.mon_15_feb_2024),
-                   style = MaterialTheme.typography.labelMedium.copy(
-                       fontWeight = FontWeight.Light,
-                       color = GrayColor,
-                       fontFamily = interFont,
-                   ),
-                   modifier = Modifier.align(Alignment.CenterVertically)
-               )
-           }
+            Row(modifier = Modifier.weight(1f)) {
+                AppIcon(icon = R.drawable.calendar)
+                SpacerWidth(24.dp)
+                Text(
+                    text = stringResource(R.string.mon_15_feb_2024),
+                    style = MaterialTheme.typography.labelMedium.copy(
+                        fontWeight = FontWeight.Light,
+                        color = GrayColor,
+                        fontFamily = interFont,
+                    ),
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+            }
             AssignIdsRow(size = 28.dp, offset = 10)
         }
     }
@@ -345,7 +347,7 @@ private fun TaskManagementHeader(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = modifier.padding(top = 10.dp)
+        modifier = modifier.padding(top = 30.dp, start = 20.dp, end = 20.dp)
     ) {
         Row(
             modifier = Modifier.weight(1f)

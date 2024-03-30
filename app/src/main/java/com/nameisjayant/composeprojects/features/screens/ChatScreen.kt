@@ -86,7 +86,6 @@ private fun ChatRow(
         modifier = modifier
             .background(Color.White)
             .fillMaxSize()
-            .padding(horizontal = 16.dp)
     ) {
         header?.invoke()
         search?.invoke()
@@ -113,7 +112,7 @@ private fun ChattingRow(
     chat: ChatModal
 ) {
     Row(
-        modifier = modifier.padding(bottom = 24.dp)
+        modifier = modifier.padding(bottom = 24.dp, start = 16.dp, end = 16.dp)
     ) {
         Row(modifier = Modifier.weight(1f)) {
             if (!chat.isGroup) {
@@ -256,7 +255,7 @@ private fun StoryRow(
     chat: ChatModal
 ) {
     Column(
-        modifier = modifier.padding(end = 16.dp),
+        modifier = modifier.padding(start = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
@@ -293,7 +292,7 @@ private fun SearchTextField(
         onValueChange = {
             search = it
         },
-        modifier = modifier.padding(top = 16.dp),
+        modifier = modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp),
         maxLines = 1,
         singleLine = true,
         keyboardOptions = KeyboardOptions(
@@ -353,7 +352,7 @@ private fun ChatHeader(
         }
     }
     Row(
-        modifier = modifier.padding(top = 16.dp),
+        modifier = modifier.padding(top = 16.dp, end = 16.dp, start = 16.dp),
     ) {
         Row(modifier = Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
             AppIcon(icon = R.drawable.man, modifier = Modifier.size(46.dp))
