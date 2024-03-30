@@ -37,9 +37,11 @@
 <table style="width:100%">
   <tr>
     <th>Twitter Profile UI</th>
+    <th>Chatting UI</th>
   </tr>
   <tr>
     <td><img src="screenshots/twitter_profile.png" height="500" alt="twitter_profile_ui"/></td>
+    <td><img src="screenshots/chatting.png" height="500" alt="chatting_ui"/></td>
   </tr>
 </table>
 
