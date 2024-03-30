@@ -71,8 +71,8 @@ val TimerDarkPurple = Color(0XFF1B143F)
 val TimerPinkColor = Color(0XFFFD5B71)
 val TimerLightDarkBlue = Color(0XFF292639)
 val TimerGrayColor = Color(0XFF989898)
-val TimerLinearGradient =Brush.linearGradient(
-    listOf(Color.White,Color(0XFF7012CE),Color(0XFF7012CE))
+val TimerLinearGradient = Brush.linearGradient(
+    listOf(Color.White, Color(0XFF7012CE), Color(0XFF7012CE))
 )
 
 // Twitter Profile Colors
@@ -82,3 +82,14 @@ val TwitterGray = Color(0XFF687684)
 val TwitterBlue = Color(0XFF4C9EEB)
 val TwitterBlack = Color(0XFF0F0F0F)
 val TwitterDarkGray = Color(0XFFDEDEDE)
+
+
+// chatting screen colors
+val ChattingBg = Color(0XFF292F3F)
+val ChattingDarkGray = Color(0XFF7A8194)
+val ChattingVoilet = Color(0XFFB347EA)
+val ChattingBlack = Color(0XFF272A35)
+val ChattingGray = Color(0XFF373E4E)
+val ChattingOrange = Color(0XFFF18303)
+val ChattingLightGray = Color(0XFF545965)
+val ChattingDark = Color(0XFF1f232f)
