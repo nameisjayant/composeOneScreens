@@ -76,8 +76,11 @@ fun ComposeProjectsTheme(
 //            // Twitter Profile Screen status color
 //            window.statusBarColor = TwitterBg.toArgb()
 
-            // Chatting Screen status color
-            window.statusBarColor = ChattingBg.toArgb()
+//            // Chatting Screen status color
+//            window.statusBarColor = ChattingBg.toArgb()
+
+            // tesla Screen status color
+            window.statusBarColor = TeslaBg.toArgb()
 
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
