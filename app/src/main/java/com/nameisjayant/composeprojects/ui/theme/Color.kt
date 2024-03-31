@@ -93,3 +93,9 @@ val ChattingGray = Color(0XFF373E4E)
 val ChattingOrange = Color(0XFFF18303)
 val ChattingLightGray = Color(0XFF545965)
 val ChattingDark = Color(0XFF1f232f)
+
+// tesla screen colors
+val TeslaBg = Color(0XFF353A40)
+val TeslaGradientBg = Brush.linearGradient(
+    listOf(Color(0XFF353A40), Color(0XFF16171B))
+)
