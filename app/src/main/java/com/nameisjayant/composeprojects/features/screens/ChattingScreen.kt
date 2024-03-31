@@ -14,15 +14,20 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -33,6 +38,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -54,14 +60,29 @@ import com.nameisjayant.composeprojects.ui.theme.ChattingOrange
 import com.nameisjayant.composeprojects.ui.theme.ChattingVoilet
 import com.nameisjayant.composeprojects.ui.theme.interFont
 import com.nameisjayant.composeprojects.ui.theme.montserratFont
+import java.util.UUID
 
 
 @Composable
 fun ChattingScreen() {
+    val lazyListState = rememberLazyListState()
+    val chatList = remember {
+        mutableStateListOf<ChattingModal>().apply {
+            addAll(chattingModalList)
+        }
+    }
+    LaunchedEffect(key1 = chatList.size) {
+        lazyListState.scrollToItem(chatList.size)
+    }
     ChattingRow(
         header = { ChattingHeaderRow() },
-        type = { MessageType() },
-        chats = { chatLists() }
+        type = {
+            MessageType {
+                chatList.add(it)
+            }
+        },
+        chats = { chatLists(chatList.toList()) },
+        lazyListState = lazyListState
     )
 }
 
@@ -70,8 +91,10 @@ private fun ChattingRow(
     modifier: Modifier = Modifier,
     header: (@Composable () -> Unit)? = null,
     chats: (LazyListScope.() -> Unit)? = null,
-    type: (@Composable () -> Unit)? = null
+    type: (@Composable () -> Unit)? = null,
+    lazyListState: LazyListState
 ) {
+
     Column(
         modifier = modifier
             .background(ChattingBg)
@@ -80,7 +103,8 @@ private fun ChattingRow(
         header?.invoke()
         LazyColumn(
             modifier = Modifier.weight(1f),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            state = lazyListState
         ) {
             chats?.invoke(this)
         }
@@ -117,9 +141,11 @@ private fun ChattingHeaderRow(
 
 @Composable
 private fun MessageType(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onChatUpdate: (ChattingModal) -> Unit
 ) {
     var message by remember { mutableStateOf("") }
+    val keyboardController = LocalSoftwareKeyboardController.current
     Column {
         BasicTextField(
             value = message,
@@ -130,7 +156,7 @@ private fun MessageType(
                 fontFamily = montserratFont,
                 fontSize = 14.sp
             ),
-            cursorBrush = SolidColor(Color.White)
+            cursorBrush = SolidColor(Color.White),
         ) {
             Row(
                 modifier = Modifier
@@ -169,7 +195,17 @@ private fun MessageType(
                                 )
                             }
                             .padding(5.dp)
-                    ) {}
+                    ) {
+                        onChatUpdate(
+                            ChattingModal(
+                                id = UUID.randomUUID().toString(),
+                                chat = message,
+                                isLeftDirection = false
+                            )
+                        )
+                        message = ""
+                        keyboardController?.hide()
+                    }
                 }
             }
         }
@@ -177,7 +213,9 @@ private fun MessageType(
     }
 }
 
-private fun LazyListScope.chatLists() {
+private fun LazyListScope.chatLists(
+    data: List<ChattingModal>
+) {
     item {
         SpacerHeight(35.dp)
         Text(
@@ -188,7 +226,7 @@ private fun LazyListScope.chatLists() {
             )
         )
     }
-    items(chattingModalList, key = { it.id }) {
+    items(data, key = { it.id }) {
         ChatEachRow(data = it)
     }
     item {
@@ -198,7 +236,7 @@ private fun LazyListScope.chatLists() {
 }
 
 @Composable
-fun ChatEachRow(
+private fun ChatEachRow(
     modifier: Modifier = Modifier,
     data: ChattingModal
 ) {
@@ -251,7 +289,7 @@ fun ChatEachRow(
                             fontFamily = montserratFont,
                             fontSize = 13.sp
                         ), modifier = Modifier
-                            .fillMaxWidth(0.6f)
+                            .widthIn(max = 300.dp)
                             .drawBehind {
                                 drawRoundRect(
                                     color = ChattingBlack,
@@ -301,8 +339,8 @@ fun ChatEachRow(
     }
 }
 
-data class ChattingModal(
-    val id: Int,
+private data class ChattingModal(
+    val id: String,
     val chat: String,
     @DrawableRes val profilePic: Int = R.drawable.girl_1,
     val isLeftDirection: Boolean,
@@ -310,77 +348,77 @@ data class ChattingModal(
     val isJoined: Boolean = false
 )
 
-val chattingModalList = listOf(
+private val chattingModalList = listOf(
     ChattingModal(
-        1, "Anybody affected by coronavirus?",
+        "1", "Anybody affected by coronavirus?",
         R.drawable.girl_1,
         isLeftDirection = true
     ),
     ChattingModal(
-        2, "At out office 3 ppl are infected. We work from home.",
+        "2", "At out office 3 ppl are infected. We work from home.",
         R.drawable.girl_1,
         isLeftDirection = false
     ),
     ChattingModal(
-        3, "All good here. We wash hands and stay home.",
+        "3", "All good here. We wash hands and stay home.",
         R.drawable.girl_2,
         isLeftDirection = true
     ),
     ChattingModal(
-        4, "All good here. We wash hands and stay home.",
+        "4", "All good here. We wash hands and stay home.",
         R.drawable.girl_2,
         isLeftDirection = false,
         isImage = true
     ),
     ChattingModal(
-        5, "This is our new manager, She will join chat. Her name is Ola.",
+        "5", "This is our new manager, She will join chat. Her name is Ola.",
         R.drawable.girl_1,
         isLeftDirection = false
     ),
     ChattingModal(
-        6, "Marissa joined.",
+        "6", "Marissa joined.",
         R.drawable.girl_1,
         isLeftDirection = true,
         isJoined = true
     ),
     ChattingModal(
-        7, "Hello everybody! I’m Ola.",
+        "7", "Hello everybody! I’m Ola.",
         R.drawable.girl_3,
         isLeftDirection = true
     ),
     ChattingModal(
-        8, "Hi Ola!",
+        "8", "Hi Ola!",
         R.drawable.girl,
         isLeftDirection = true
     ),
     ChattingModal(
-        9, "All good here. We wash hands and stay home.",
+        "9", "All good here. We wash hands and stay home.",
         R.drawable.girl_2,
         isLeftDirection = true
     ),
     ChattingModal(
-        10, "All good here. We wash hands and stay home.",
+        "10", "All good here. We wash hands and stay home.",
         R.drawable.girl_2,
         isLeftDirection = false,
         isImage = true
     ),
     ChattingModal(
-        11, "This is our new manager, She will join chat. Her name is Ola.",
+        "11", "This is our new manager, She will join chat. Her name is Ola.",
         R.drawable.girl_1,
         isLeftDirection = false
     ),
     ChattingModal(
-        12, "Anybody affected by coronavirus?",
+        "12", "Anybody affected by coronavirus?",
         R.drawable.girl_1,
         isLeftDirection = true
     ),
     ChattingModal(
-        13, "At out office 3 ppl are infected. We work from home.",
+        "13", "At out office 3 ppl are infected. We work from home.",
         R.drawable.girl_1,
         isLeftDirection = false
     ),
     ChattingModal(
-        14, "All good here. We wash hands and stay home.",
+        "14", "All good here. We wash hands and stay home.",
         R.drawable.girl_2,
         isLeftDirection = true
     ),

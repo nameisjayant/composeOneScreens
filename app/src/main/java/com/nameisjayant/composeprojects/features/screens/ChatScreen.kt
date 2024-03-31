@@ -377,7 +377,7 @@ private fun ChatHeader(
 }
 
 
-data class ChatModal(
+private data class ChatModal(
     val id: Int,
     val name: String,
     @DrawableRes val image: Int,
@@ -391,7 +391,7 @@ data class ChatModal(
     val receive: Boolean = true
 )
 
-val chatModalList = listOf(
+private val chatModalList = listOf(
     ChatModal(
         1,
         "John",
