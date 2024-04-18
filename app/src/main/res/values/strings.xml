@@ -80,4 +80,8 @@
     <string name="_15">15</string>
     <string name="write">Write</string>
     <string name="_3_mar_13_34">3 MAR 13:34</string>
+    <string name="statistics">Statistics</string>
+    <string name="june_2022">June 2022</string>
+    <string name="overview">Overview</string>
+    <string name="daily_progress">Daily progress</string>
 </resources>
