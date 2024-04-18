@@ -26,22 +26,11 @@ private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
 )
 
 @Composable
 fun ComposeProjectsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
@@ -78,9 +67,12 @@ fun ComposeProjectsTheme(
 
 //            // Chatting Screen status color
 //            window.statusBarColor = ChattingBg.toArgb()
-
-            // tesla Screen status color
-            window.statusBarColor = TeslaBg.toArgb()
+          
+            // health ui Screen status color
+            window.statusBarColor = Color.White.toArgb()
+            
+//             // tesla Screen status color
+//             window.statusBarColor = TeslaBg.toArgb()
 
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }

@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import com.nameisjayant.composeprojects.features.screens.ChatScreen
 import com.nameisjayant.composeprojects.features.screens.ChattingScreen
 import com.nameisjayant.composeprojects.features.screens.ElectricCarScreen
+import com.nameisjayant.composeprojects.features.screens.HealthUIScreen
 import com.nameisjayant.composeprojects.features.screens.InstagramHomeScreen
 import com.nameisjayant.composeprojects.features.screens.NFTMobileScreen
 import com.nameisjayant.composeprojects.features.screens.TaskManagementScreen
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeProjectsTheme {
-                TeslaScreen()
+                HealthUIScreen()
             }
         }
     }
