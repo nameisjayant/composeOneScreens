@@ -84,4 +84,9 @@
     <string name="june_2022">June 2022</string>
     <string name="overview">Overview</string>
     <string name="daily_progress">Daily progress</string>
+    <string name="tesla">Tesla</string>
+    <string name="cybertruck">Cybertruck</string>
+    <string name="currently_27_c_will_change_in_2min">Currently 27 C\nWill change in 2min</string>
+    <string name="a_c_is_on">A/C is ON</string>
+    <string name="mode">Mode</string>
 </resources>

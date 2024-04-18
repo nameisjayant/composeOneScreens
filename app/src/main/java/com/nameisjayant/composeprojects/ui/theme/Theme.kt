@@ -67,9 +67,12 @@ fun ComposeProjectsTheme(
 
 //            // Chatting Screen status color
 //            window.statusBarColor = ChattingBg.toArgb()
-
+          
             // health ui Screen status color
             window.statusBarColor = Color.White.toArgb()
+            
+//             // tesla Screen status color
+//             window.statusBarColor = TeslaBg.toArgb()
 
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }

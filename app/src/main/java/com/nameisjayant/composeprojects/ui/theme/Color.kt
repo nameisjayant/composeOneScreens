@@ -110,3 +110,12 @@ val HealthLightYellow = Color(0XFFFFEFD7)
 val HealthWhite = Color(0XFFF7F9FA)
 val HealthWhite1 = Color(0XFFF2F4F5)
 
+// tesla screen colors
+val TeslaBg = Color(0XFF353A40)
+val TeslaGradientBg = Brush.linearGradient(
+    listOf(Color(0XFF353A40), Color(0XFF16171B))
+)
+val TeslaGray = Color(0XFF7F8489)
+val TeslaWhite = Color(0XFFFDFDFD)
+val TeslaBlack = Color(0XFF17181C)
+val TeslaBlue = Color(0XFF058DD9)
