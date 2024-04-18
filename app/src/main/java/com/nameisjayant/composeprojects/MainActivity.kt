@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeProjectsTheme {
-                HealthUIScreen()
+                TeslaScreen()
             }
         }
     }

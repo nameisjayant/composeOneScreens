@@ -47,6 +47,15 @@
   </tr>
 </table>
 
+<table style="width:100%">
+  <tr>
+    <th>Tesla UI</th>
+  </tr>
+  <tr>
+    <td><img src="screenshots/tesla_ui.png" height="500" alt="tesla_ui"/></td>
+  </tr>
+</table>
+
 ## Packages
 
 - `components`: Includes all the common components here.

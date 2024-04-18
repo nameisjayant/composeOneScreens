@@ -1,6 +1,8 @@
 package com.nameisjayant.composeprojects.features.screens
 
+import android.view.MotionEvent
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -22,14 +24,25 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.input.pointer.pointerInteropFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nameisjayant.composeprojects.R
@@ -43,6 +56,9 @@ import com.nameisjayant.composeprojects.ui.theme.TeslaGray
 import com.nameisjayant.composeprojects.ui.theme.TeslaWhite
 import com.nameisjayant.composeprojects.ui.theme.interFont
 import com.nameisjayant.composeprojects.ui.theme.montserratFont
+import kotlin.math.cos
+import kotlin.math.min
+import kotlin.math.sin
 
 @Composable
 fun TeslaScreen() {
@@ -52,6 +68,8 @@ fun TeslaScreen() {
         BottomSheetHeader()
     }, bottomSheetFooter = {
         BottomSheetFooter()
+    }, bottomSheetCenter = {
+        BottomSheetCenter()
     })
 }
 
@@ -74,7 +92,7 @@ private fun TeslaRow(
         Box(
             modifier = Modifier
                 .border(
-                    1.dp, Brush.linearGradient(
+                    0.4.dp, Brush.linearGradient(
                         listOf(
                             Color(0XFF7F8489),
                             Color(0XFF353A40),
@@ -237,6 +255,96 @@ private fun BottomSheetFooter(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun BottomSheetCenter(
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+    ) {
+        Cooling()
+    }
+}
+
+@OptIn(ExperimentalComposeUiApi::class)
+@Composable
+private fun Cooling(
+    modifier: Modifier = Modifier,
+) {
+    val currentProgress by remember { mutableFloatStateOf(0.8f) }
+
+    val textMeasure = rememberTextMeasurer()
+    val style = TextStyle(
+        fontSize = 50.sp,
+        color = Color.White,
+        fontFamily = interFont,
+        fontWeight = FontWeight.ExtraBold
+    )
+    val textToDraw = "25°C"
+    val textLayoutResult = remember(textToDraw) {
+        textMeasure.measure(textToDraw, style)
+    }
+
+    Canvas(modifier = modifier
+        .size(300.dp)
+        .pointerInteropFilter { event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    true
+                }
+
+                else -> false
+            }
+        }) {
+        val centerX = size.width / 2
+        val centerY = size.height / 2
+        val radius = min(size.width, size.height) / 2.2f
+        val endAngle = 360 * currentProgress
+        val endX = centerX + radius * cos(Math.toRadians(endAngle.toDouble())).toFloat()
+        val endY = centerY + radius * sin(Math.toRadians(endAngle.toDouble())).toFloat()
+
+        drawCircle(
+            brush = Brush.linearGradient(
+                listOf(
+                    Color(0XFF202428),
+                    Color(0XFF131314)
+                )
+            ),
+            min(size.width, size.height) / 1.7f, Offset(centerX, centerY)
+        )
+
+        drawCircle(
+            Color(0XFF1F2124), radius, Offset(centerX, centerY), style = Stroke(
+                width = 50.dp.toPx()
+            )
+        )
+
+
+        drawArc(
+            color = TeslaBlue,
+            startAngle = 0f,
+            sweepAngle = endAngle,
+            useCenter = false,
+            topLeft = Offset(centerX - radius, centerY - radius),
+            size = Size(radius * 2, radius * 2),
+            style = Stroke(width = 50.dp.toPx(), cap = StrokeCap.Round)
+        )
+
+
+        drawCircle(Color(0XFF1B1D1E), 22.dp.toPx(), Offset(endX, endY))
+        drawCircle(TeslaBlue, 3.dp.toPx(), Offset(endX, endY))
+
+        drawText(
+            textMeasurer = textMeasure, text = textToDraw,
+            style = style,
+            topLeft = Offset(
+                x = center.x - textLayoutResult.size.width / 2,
+                y = center.y - textLayoutResult.size.height / 2,
+            )
+        )
     }
 }
 
