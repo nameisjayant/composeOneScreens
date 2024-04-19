@@ -123,7 +123,7 @@ val TeslaBlue = Color(0XFF058DD9)
 // scoreboard screen colors
 val ScoreboardBg = Color(0XFF181829)
 val ScoreboardDarkGray = Color(0XFF222232)
-val ScoreGray = Color(0XFF65656B)
+val ScoreBoardGray = Color(0XFF65656B)
 val ScoreLightGray = Color(0XFFAAAAAA)
 val ScoreLinearGradient = Brush.linearGradient(
     listOf(
