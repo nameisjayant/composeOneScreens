@@ -74,6 +74,9 @@ fun ComposeProjectsTheme(
             // tesla Screen status color
             window.statusBarColor = TeslaBg.toArgb()
 
+            // Scoreboard Screen status color
+            window.statusBarColor = ScoreboardBg.toArgb()
+
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
