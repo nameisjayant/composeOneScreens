@@ -4,7 +4,8 @@
 
 ## Purpose
 
-- Purpose of making this repository is to learn how to make or write complex ui screen codes in jetpack compose.
+- Purpose of making this repository is to learn how to make or write complex ui screen codes in
+  jetpack compose.
 - It also focus on the clean and reusable codes.
 
 ## 🖥️ Screenshots
@@ -50,9 +51,11 @@
 <table style="width:100%">
   <tr>
     <th>Tesla UI</th>
+    <th>ScoreBoard UI</th>
   </tr>
   <tr>
     <td><img src="screenshots/tesla_ui.png" height="500" alt="tesla_ui"/></td>
+    <td><img src="screenshots/scoreboard_ui.png" height="500" alt="scoreboard_ui"/></td>
   </tr>
 </table>
 
