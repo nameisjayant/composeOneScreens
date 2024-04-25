@@ -1,12 +1,26 @@
 package com.nameisjayant.composeprojects.features.screens
 
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import com.nameisjayant.composeprojects.R
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -17,10 +31,11 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,6 +44,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -36,140 +52,154 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.nameisjayant.composeprojects.R
+import com.nameisjayant.composeprojects.components.AppIcon
+import com.nameisjayant.composeprojects.components.AppIconButton
+import com.nameisjayant.composeprojects.components.SpacerHeight
+import com.nameisjayant.composeprojects.components.SpacerWidth
 
 @Composable
-fun ProfileScreen() {
+fun InstagramProfileScreen() {
+
+    InstagramProfileRow(
+        topBarSection = {
+            TopBar(
+                name = stringResource(R.string.hemantjain_17),
+            )
+        },
+        profileSection = {
+            ProfileSection()
+        },
+        buttonSection = {
+            ButtonSection(modifier = Modifier.fillMaxWidth())
+        },
+        highlightSection = {
+            HighlightSection()
+        }
+    ) {
+        PostSection()
+    }
+}
+
+@Composable
+private fun HighlightSection(
+    modifier: Modifier = Modifier
+) {
+    HighlightSection(
+        highlights = InstagramProfileData.getHighlightsData(),
+        modifier = modifier
+            .fillMaxWidth()
+    )
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun PostSection(
+    modifier: Modifier = Modifier
+) {
+    val pagerState = rememberPagerState(initialPage = 0) {
+        InstagramProfileData.getPostsData().size
+    }
     var selectedTabIndex by remember {
         mutableIntStateOf(value = 0)
     }
-    Column(modifier = Modifier.fillMaxSize()) {
-        TopBar(
-            name = "hemantjain_17",
-            modifier = Modifier.padding(10.dp)
-        )
-        Spacer(modifier = Modifier.height(4.dp))
-        ProfileSection()
-        Spacer(modifier = Modifier.height(15.dp))
-        ButtonSection(modifier = Modifier.fillMaxWidth())
-        Spacer(modifier = Modifier.height(15.dp))
-        HighlightSection(
-            highlights = listOf(
-                ImageWithText(
-                    image = painterResource(id = R.drawable.ic_france),
-                    text = "France"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.ic_dubai),
-                    text = "Dubai"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.ic_italy),
-                    text = "Italy"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.ic_spain),
-                    text = "Spain"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.ic_usa),
-                    text = "USA"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.ic_japan),
-                    text = "Japan"
-                ),
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)
-        )
-        Spacer(modifier = Modifier.height(10.dp))
+    LaunchedEffect(key1 = pagerState.currentPage) {
+        selectedTabIndex = pagerState.currentPage
+    }
+    Column(
+        modifier = modifier
+    ) {
         PostTabView(
-            imageWithTexts = listOf(
-                ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
-                    text = "Posts"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
-                    text = "Reels"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.igtv),
-                    text = "IGTV"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
-                    text = "Tags"
-                ),
-            )
+            imageWithTexts = InstagramProfileData.getPostsData(),
+            selectedTabIndex = selectedTabIndex
         ) {
             selectedTabIndex = it
         }
         Spacer(modifier = Modifier.height(10.dp))
-        when (selectedTabIndex) {
-            0 -> PostSection(
-                posts = listOf(
-                    painterResource(id = R.drawable.ic_dubai),
-                    painterResource(id = R.drawable.ic_italy),
-                    painterResource(id = R.drawable.girl_3),
-                    painterResource(id = R.drawable.ic_japan),
-                    painterResource(id = R.drawable.monkey),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.man),
-                    painterResource(id = R.drawable.ic_usa),
-                    painterResource(id = R.drawable.girl),
-                    painterResource(id = R.drawable.girl_image),
-                    painterResource(id = R.drawable.page_2),
+        HorizontalPager(state = pagerState) {
+            when (selectedTabIndex) {
+                0 -> PostSection(
+                    posts = listOf(
+                        painterResource(id = R.drawable.ic_dubai),
+                        painterResource(id = R.drawable.ic_italy),
+                        painterResource(id = R.drawable.girl_3),
+                        painterResource(id = R.drawable.ic_japan),
+                        painterResource(id = R.drawable.monkey),
+                        painterResource(id = R.drawable.girl_1),
+                        painterResource(id = R.drawable.man),
+                        painterResource(id = R.drawable.ic_usa),
+                        painterResource(id = R.drawable.girl),
+                        painterResource(id = R.drawable.girl_image),
+                        painterResource(id = R.drawable.page_2),
+                    )
                 )
-            )
 
-            1 -> PostSection(
-                posts = listOf(
-                    painterResource(id = R.drawable.page_2),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.monkey),
-                    painterResource(id = R.drawable.girl_2),
+                1 -> PostSection(
+                    posts = listOf(
+                        painterResource(id = R.drawable.page_2),
+                        painterResource(id = R.drawable.girl_1),
+                        painterResource(id = R.drawable.monkey),
+                        painterResource(id = R.drawable.girl_2),
+                    )
                 )
-            )
 
-            2 -> PostSection(
-                posts = listOf(
-                    painterResource(id = R.drawable.ic_italy),
+                2 -> PostSection(
+                    posts = listOf(
+                        painterResource(id = R.drawable.ic_italy),
+                    )
                 )
-            )
 
-            3 -> PostSection(
-                posts = listOf(
-                    painterResource(id = R.drawable.girl),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_2),
-                    painterResource(id = R.drawable.girl_3),
-                    painterResource(id = R.drawable.girl_image),
-                    painterResource(id = R.drawable.man),
-                    painterResource(id = R.drawable.ic_japan),
+                3 -> PostSection(
+                    posts = listOf(
+                        painterResource(id = R.drawable.girl),
+                        painterResource(id = R.drawable.girl_1),
+                        painterResource(id = R.drawable.girl_2),
+                        painterResource(id = R.drawable.girl_3),
+                        painterResource(id = R.drawable.girl_image),
+                        painterResource(id = R.drawable.man),
+                        painterResource(id = R.drawable.ic_japan),
+                    )
                 )
-            )
+            }
         }
     }
 }
 
 @Composable
-fun TopBar(
-    name: String,
-    modifier: Modifier = Modifier
+private fun InstagramProfileRow(
+    modifier: Modifier = Modifier,
+    topBarSection: (@Composable () -> Unit)? = null,
+    profileSection: (@Composable () -> Unit)? = null,
+    buttonSection: (@Composable () -> Unit)? = null,
+    highlightSection: (@Composable () -> Unit)? = null,
+    postsSection: (@Composable () -> Unit)? = null,
+) {
+    Column(
+        modifier = modifier.fillMaxSize()
+    ) {
+        topBarSection?.invoke()
+        profileSection?.invoke()
+        buttonSection?.invoke()
+        highlightSection?.invoke()
+        postsSection?.invoke()
+    }
+}
+
+@Composable
+private fun TopBar(
+    modifier: Modifier = Modifier,
+    name: String
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceAround,
-        modifier = modifier.fillMaxWidth(0.6F)
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = modifier
+            .padding(start = 20.dp)
+            .fillMaxWidth(0.5F)
     ) {
-        Icon(
-            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-            contentDescription = "Back",
-            tint = Color.Black,
-            modifier = Modifier.size(24.dp)
-        )
+        AppIconButton(
+            imageVector = Icons.AutoMirrored.Filled.ArrowBack, tint = Color.Black
+        ) {}
         Text(
             text = name,
             overflow = TextOverflow.Ellipsis,
@@ -180,7 +210,7 @@ fun TopBar(
 }
 
 @Composable
-fun ProfileSection(
+private fun ProfileSection(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
@@ -192,16 +222,18 @@ fun ProfileSection(
         ) {
             RoundImage(
                 image = painterResource(id = R.drawable.ic_profile_image),
-                modifier = Modifier.size(100.dp).weight(3f)
+                modifier = Modifier
+                    .size(100.dp)
+                    .weight(0.3f)
             )
-            Spacer(modifier = Modifier.width(16.dp))
-            StatSection(modifier = Modifier.weight(7f))
+            SpacerWidth(16.dp)
+            StatSection(modifier = Modifier.weight(0.7f))
         }
         Spacer(modifier = Modifier.height(10.dp))
         ProfileDescriptionSection(
-            displayName = "Hemant Jain",
-            description = "Software Developer (Android) at 55Tech | Jetpack Compose | Android | Kotlin",
-            url = "https://www.linkedin.com/in/hemantjain99/",
+            displayName = stringResource(R.string.hemant_jain),
+            description = stringResource(R.string.software_developer_android_at_55tech_jetpack_compose_android_kotlin),
+            url = stringResource(R.string.https_www_linkedin_com_in_hemantjain99),
             followedBy = listOf("viratkohli", "mrbeast"),
             otherCount = 18
         )
@@ -209,7 +241,7 @@ fun ProfileSection(
 }
 
 @Composable
-fun RoundImage(
+private fun RoundImage(
     image: Painter,
     modifier: Modifier = Modifier
 ) {
@@ -229,20 +261,20 @@ fun RoundImage(
 }
 
 @Composable
-fun StatSection(modifier: Modifier = Modifier) {
+private fun StatSection(modifier: Modifier = Modifier) {
     Row(
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceAround,
-        modifier = modifier
     ) {
-        ProfileStatSection(number = "72", text = "Posts")
-        ProfileStatSection(number = "785", text = "Followers")
-        ProfileStatSection(number = "242", text = "Following")
+        InstagramProfileData.getStats().forEach {
+            ProfileStatSection(number = it.stat, text = it.title)
+        }
     }
 }
 
 @Composable
-fun ProfileStatSection(
+private fun ProfileStatSection(
     number: String,
     text: String,
     modifier: Modifier = Modifier
@@ -257,13 +289,13 @@ fun ProfileStatSection(
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        SpacerHeight(4.dp)
         Text(text = text)
     }
 }
 
 @Composable
-fun ProfileDescriptionSection(
+private fun ProfileDescriptionSection(
     displayName: String,
     description: String,
     url: String,
@@ -294,26 +326,26 @@ fun ProfileDescriptionSection(
             letterSpacing = letterSpacing,
             lineHeight = lineHeight
         )
-        if(followedBy.isNotEmpty()) {
+        if (followedBy.isNotEmpty()) {
             Text(
                 text = buildAnnotatedString {
                     val boldStyle = SpanStyle(
                         color = Color.Black,
                         fontWeight = FontWeight.Bold
                     )
-                    append("Followed by ")
+                    append(stringResource(R.string.followed_by))
                     followedBy.forEachIndexed { index, name ->
                         pushStyle(boldStyle)
                         append(name)
                         pop()
-                        if(index < followedBy.size - 1) {
+                        if (index < followedBy.size - 1) {
                             append(", ")
                         }
                     }
-                    if(otherCount > 2) {
-                        append(" and ")
+                    if (otherCount > 2) {
+                        append(stringResource(R.string.and_))
                         pushStyle(boldStyle)
-                        append("$otherCount others")
+                        append(stringResource(R.string.others, otherCount))
                     }
                 },
                 letterSpacing = letterSpacing,
@@ -324,34 +356,25 @@ fun ProfileDescriptionSection(
 }
 
 @Composable
-fun ButtonSection(
+private fun ButtonSection(
     modifier: Modifier = Modifier
 ) {
     val minWidth = 110.dp
     val height = 30.dp
+    val list = listOf("Following", "Message", "Email")
     Row(
         horizontalArrangement = Arrangement.SpaceEvenly,
-        modifier = modifier
+        modifier = modifier.padding(vertical = 15.dp)
     ) {
-        ActionButton(
-            text = "Following",
-            icon = Icons.Default.KeyboardArrowDown,
-            modifier = Modifier
-                .defaultMinSize(minWidth = minWidth)
-                .height(height)
-        )
-        ActionButton(
-            text = "Message",
-            modifier = Modifier
-                .defaultMinSize(minWidth = minWidth)
-                .height(height)
-        )
-        ActionButton(
-            text = "Email",
-            modifier = Modifier
-                .defaultMinSize(minWidth = minWidth)
-                .height(height)
-        )
+        list.forEachIndexed { index, s ->
+            ActionButton(
+                text = s,
+                icon = if (index == 0) Icons.Default.KeyboardArrowDown else null,
+                modifier = Modifier
+                    .defaultMinSize(minWidth = minWidth)
+                    .height(height)
+            )
+        }
         ActionButton(
             icon = Icons.Default.KeyboardArrowDown,
             modifier = Modifier.size(height)
@@ -360,7 +383,7 @@ fun ButtonSection(
 }
 
 @Composable
-fun ActionButton(
+private fun ActionButton(
     modifier: Modifier = Modifier,
     text: String? = null,
     icon: ImageVector? = null
@@ -374,31 +397,31 @@ fun ActionButton(
                 color = Color.LightGray,
                 shape = RoundedCornerShape(5.dp)
             )
-            .padding(6.dp)
     ) {
-        if(text != null) {
+        text?.let {
             Text(
-                text = text,
+                text = it,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 14.sp
             )
         }
-        if(icon != null) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = Color.Black
+        icon?.let {
+            AppIcon(
+                imageVector = it, tint = Color.Black
             )
         }
     }
 }
 
 @Composable
-fun HighlightSection(
+private fun HighlightSection(
     modifier: Modifier = Modifier,
     highlights: List<ImageWithText>
 ) {
     LazyRow(modifier = modifier) {
+        item {
+            SpacerWidth(20.dp)
+        }
         items(highlights.size) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -406,7 +429,7 @@ fun HighlightSection(
                 modifier = Modifier.padding(end = 15.dp)
             ) {
                 RoundImage(
-                    image = highlights[it].image,
+                    image = painterResource(id = highlights[it].image),
                     modifier = Modifier.size(70.dp)
                 )
                 Text(
@@ -420,20 +443,18 @@ fun HighlightSection(
 }
 
 @Composable
-fun PostTabView(
+private fun PostTabView(
     modifier: Modifier = Modifier,
     imageWithTexts: List<ImageWithText>,
+    selectedTabIndex: Int,
     onTabSelected: (selectedIndex: Int) -> Unit
 ) {
-    var selectedTabIndex by remember {
-        mutableIntStateOf(value = 0)
-    }
     val inactiveColor = Color(color = 0xFF777777)
     TabRow(
         selectedTabIndex = selectedTabIndex,
         containerColor = Color.Transparent,
         contentColor = Color.Black,
-        modifier = modifier
+        modifier = modifier.padding(top = 10.dp)
     ) {
         imageWithTexts.forEachIndexed { index, _ ->
             Tab(
@@ -442,7 +463,6 @@ fun PostTabView(
                 selectedContentColor = Color.Black,
                 unselectedContentColor = inactiveColor,
                 onClick = {
-                    selectedTabIndex = index
                     onTabSelected(index)
                 }
             ) {
@@ -457,7 +477,7 @@ fun PostTabView(
 }
 
 @Composable
-fun PostSection(
+private fun PostSection(
     posts: List<Painter>
 ) {
     LazyVerticalGrid(
@@ -480,6 +500,70 @@ fun PostSection(
 }
 
 data class ImageWithText(
-    val image: Painter,
+    @DrawableRes val image: Int,
     val text: String
 )
+
+data class StatsModal(
+    val title: String,
+    val stat: String
+)
+
+private object InstagramProfileData {
+
+    fun getStats(): List<StatsModal> {
+        return listOf(
+            StatsModal("Posts", "72"),
+            StatsModal("Followers", "785"),
+            StatsModal("Following", "242")
+        )
+    }
+
+    fun getHighlightsData() = listOf(
+        ImageWithText(
+            image = R.drawable.ic_france,
+            text = "France"
+        ),
+        ImageWithText(
+            image = R.drawable.ic_dubai,
+            text = "Dubai"
+        ),
+        ImageWithText(
+            image = R.drawable.ic_italy,
+            text = "Italy"
+        ),
+        ImageWithText(
+            image = R.drawable.ic_spain,
+            text = "Spain"
+        ),
+        ImageWithText(
+            image = R.drawable.ic_usa,
+            text = "USA"
+        ),
+        ImageWithText(
+            image = R.drawable.ic_japan,
+            text = "Japan"
+        ),
+    )
+
+    fun getPostsData() = listOf(
+        ImageWithText(
+            image = R.drawable.girl_1,
+            text = "Posts"
+        ),
+        ImageWithText(
+            image = R.drawable.girl_1,
+            text = "Reels"
+        ),
+        ImageWithText(
+            image = R.drawable.igtv,
+            text = "IGTV"
+        ),
+        ImageWithText(
+            image = R.drawable.girl_1,
+            text = "Tags"
+        ),
+    )
+
+
+}

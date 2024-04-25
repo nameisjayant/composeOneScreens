@@ -77,6 +77,9 @@ fun ComposeProjectsTheme(
             // Scoreboard Screen status color
             window.statusBarColor = ScoreboardBg.toArgb()
 
+            // Instagram Profile Screen status color
+            window.statusBarColor = Color.White.toArgb()
+
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

@@ -95,4 +95,11 @@
     <string name="team">Team</string>
     <string name="premier_league">Premier League</string>
     <string name="england">England</string>
+    <string name="hemantjain_17">hemantjain_17</string>
+    <string name="hemant_jain">Hemant Jain</string>
+    <string name="software_developer_android_at_55tech_jetpack_compose_android_kotlin">Software Developer (Android) at 55Tech | Jetpack Compose | Android | Kotlin</string>
+    <string name="https_www_linkedin_com_in_hemantjain99">https://www.linkedin.com/in/hemantjain99/</string>
+    <string name="followed_by">"Followed by "</string>
+    <string name="others">%1$s others</string>
+    <string name="and_">" and "</string>
 </resources>
