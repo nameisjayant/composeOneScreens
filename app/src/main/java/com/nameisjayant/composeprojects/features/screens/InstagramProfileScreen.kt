@@ -24,7 +24,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -197,7 +196,7 @@ fun ProfileSection(
                 .padding(horizontal = 20.dp)
         ) {
             RoundImage(
-                image = painterResource(id = R.drawable.girl_1),
+                image = painterResource(id = R.drawable.ic_profile_image),
                 modifier = Modifier.size(100.dp).weight(3f)
             )
             Spacer(modifier = Modifier.width(16.dp))
@@ -441,7 +440,7 @@ fun PostTabView(
         contentColor = Color.Black,
         modifier = modifier
     ) {
-        imageWithTexts.forEachIndexed { index, item ->
+        imageWithTexts.forEachIndexed { index, _ ->
             Tab(
                 modifier = Modifier.height(60.dp),
                 selected = selectedTabIndex == index,
