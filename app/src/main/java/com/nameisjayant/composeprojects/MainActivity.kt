@@ -10,6 +10,7 @@ import com.nameisjayant.composeprojects.features.screens.HealthUIScreen
 import com.nameisjayant.composeprojects.features.screens.InstagramHomeScreen
 import com.nameisjayant.composeprojects.features.screens.NFTMobileScreen
 import com.nameisjayant.composeprojects.features.screens.ProfileScreen
+import com.nameisjayant.composeprojects.features.screens.ScoreboardScreen
 import com.nameisjayant.composeprojects.features.screens.TaskManagementScreen
 import com.nameisjayant.composeprojects.features.screens.TeslaScreen
 import com.nameisjayant.composeprojects.features.screens.TimerScreen

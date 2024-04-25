@@ -89,4 +89,10 @@
     <string name="currently_27_c_will_change_in_2min">Currently 27 C\nWill change in 2min</string>
     <string name="a_c_is_on">A/C is ON</string>
     <string name="mode">Mode</string>
+    <string name="search_your_competition">Search your competition ...</string>
+    <string name="la_liga">La Liga</string>
+    <string name="spain">Spain</string>
+    <string name="team">Team</string>
+    <string name="premier_league">Premier League</string>
+    <string name="england">England</string>
 </resources>
