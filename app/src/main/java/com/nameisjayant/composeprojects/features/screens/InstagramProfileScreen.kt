@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -26,7 +25,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
@@ -78,6 +76,26 @@ fun InstagramProfileScreen() {
         }
     ) {
         PostSection()
+    }
+}
+
+@Composable
+private fun InstagramProfileRow(
+    modifier: Modifier = Modifier,
+    topBarSection: (@Composable () -> Unit)? = null,
+    profileSection: (@Composable () -> Unit)? = null,
+    buttonSection: (@Composable () -> Unit)? = null,
+    highlightSection: (@Composable () -> Unit)? = null,
+    postsSection: (@Composable () -> Unit)? = null,
+) {
+    Column(
+        modifier = modifier.fillMaxSize()
+    ) {
+        topBarSection?.invoke()
+        profileSection?.invoke()
+        buttonSection?.invoke()
+        highlightSection?.invoke()
+        postsSection?.invoke()
     }
 }
 
@@ -165,25 +183,7 @@ private fun PostSection(
     }
 }
 
-@Composable
-private fun InstagramProfileRow(
-    modifier: Modifier = Modifier,
-    topBarSection: (@Composable () -> Unit)? = null,
-    profileSection: (@Composable () -> Unit)? = null,
-    buttonSection: (@Composable () -> Unit)? = null,
-    highlightSection: (@Composable () -> Unit)? = null,
-    postsSection: (@Composable () -> Unit)? = null,
-) {
-    Column(
-        modifier = modifier.fillMaxSize()
-    ) {
-        topBarSection?.invoke()
-        profileSection?.invoke()
-        buttonSection?.invoke()
-        highlightSection?.invoke()
-        postsSection?.invoke()
-    }
-}
+
 
 @Composable
 private fun TopBar(
@@ -235,7 +235,6 @@ private fun ProfileSection(
             description = stringResource(R.string.software_developer_android_at_55tech_jetpack_compose_android_kotlin),
             url = stringResource(R.string.https_www_linkedin_com_in_hemantjain99),
             followedBy = listOf("viratkohli", "mrbeast"),
-            otherCount = 18
         )
     }
 }
@@ -300,7 +299,7 @@ private fun ProfileDescriptionSection(
     description: String,
     url: String,
     followedBy: List<String>,
-    otherCount: Int
+    otherCount: Int = 18
 ) {
     val letterSpacing = 0.5.sp
     val lineHeight = 20.sp
