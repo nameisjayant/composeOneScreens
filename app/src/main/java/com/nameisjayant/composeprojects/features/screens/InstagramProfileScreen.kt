@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun ProfileScreen() {
     var selectedTabIndex by remember {
-        mutableIntStateOf(0)
+        mutableIntStateOf(value = 0)
     }
     Column(modifier = Modifier.fillMaxSize()) {
         TopBar(
@@ -55,31 +55,27 @@ fun ProfileScreen() {
         HighlightSection(
             highlights = listOf(
                 ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
+                    image = painterResource(id = R.drawable.ic_france),
                     text = "France"
                 ),
                 ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
+                    image = painterResource(id = R.drawable.ic_dubai),
                     text = "Dubai"
                 ),
                 ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
+                    image = painterResource(id = R.drawable.ic_italy),
                     text = "Italy"
                 ),
                 ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
+                    image = painterResource(id = R.drawable.ic_spain),
                     text = "Spain"
                 ),
                 ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
-                    text = "Bali"
+                    image = painterResource(id = R.drawable.ic_usa),
+                    text = "USA"
                 ),
                 ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
-                    text = "Maldives"
-                ),
-                ImageWithText(
-                    image = painterResource(id = R.drawable.girl_1),
+                    image = painterResource(id = R.drawable.ic_japan),
                     text = "Japan"
                 ),
             ),
@@ -114,45 +110,44 @@ fun ProfileScreen() {
         when (selectedTabIndex) {
             0 -> PostSection(
                 posts = listOf(
+                    painterResource(id = R.drawable.ic_dubai),
+                    painterResource(id = R.drawable.ic_italy),
+                    painterResource(id = R.drawable.girl_3),
+                    painterResource(id = R.drawable.ic_japan),
+                    painterResource(id = R.drawable.monkey),
                     painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
+                    painterResource(id = R.drawable.man),
+                    painterResource(id = R.drawable.ic_usa),
+                    painterResource(id = R.drawable.girl),
+                    painterResource(id = R.drawable.girl_image),
+                    painterResource(id = R.drawable.page_2),
                 )
             )
 
             1 -> PostSection(
                 posts = listOf(
+                    painterResource(id = R.drawable.page_2),
                     painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
+                    painterResource(id = R.drawable.monkey),
+                    painterResource(id = R.drawable.girl_2),
                 )
             )
 
             2 -> PostSection(
                 posts = listOf(
-                    painterResource(id = R.drawable.girl_1),
+                    painterResource(id = R.drawable.ic_italy),
                 )
             )
 
             3 -> PostSection(
                 posts = listOf(
+                    painterResource(id = R.drawable.girl),
                     painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
-                    painterResource(id = R.drawable.girl_1),
+                    painterResource(id = R.drawable.girl_2),
+                    painterResource(id = R.drawable.girl_3),
+                    painterResource(id = R.drawable.girl_image),
+                    painterResource(id = R.drawable.man),
+                    painterResource(id = R.drawable.ic_japan),
                 )
             )
         }
@@ -431,9 +426,9 @@ fun PostTabView(
     onTabSelected: (selectedIndex: Int) -> Unit
 ) {
     var selectedTabIndex by remember {
-        mutableIntStateOf(0)
+        mutableIntStateOf(value = 0)
     }
-    val inactiveColor = Color(0xFF777777)
+    val inactiveColor = Color(color = 0xFF777777)
     TabRow(
         selectedTabIndex = selectedTabIndex,
         containerColor = Color.Transparent,
