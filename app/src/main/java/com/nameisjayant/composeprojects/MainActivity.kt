@@ -3,18 +3,7 @@ package com.nameisjayant.composeprojects
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.nameisjayant.composeprojects.features.screens.ChatScreen
-import com.nameisjayant.composeprojects.features.screens.ChattingScreen
-import com.nameisjayant.composeprojects.features.screens.ElectricCarScreen
-import com.nameisjayant.composeprojects.features.screens.HealthUIScreen
-import com.nameisjayant.composeprojects.features.screens.InstagramHomeScreen
-import com.nameisjayant.composeprojects.features.screens.NFTMobileScreen
-import com.nameisjayant.composeprojects.features.screens.ProfileScreen
-import com.nameisjayant.composeprojects.features.screens.ScoreboardScreen
-import com.nameisjayant.composeprojects.features.screens.TaskManagementScreen
-import com.nameisjayant.composeprojects.features.screens.TeslaScreen
-import com.nameisjayant.composeprojects.features.screens.TimerScreen
-import com.nameisjayant.composeprojects.features.screens.TwitterProfileScreen
+import com.nameisjayant.composeprojects.features.screens.InstagramProfileScreen
 import com.nameisjayant.composeprojects.ui.theme.ComposeProjectsTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +11,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeProjectsTheme {
-                ProfileScreen()
+                InstagramProfileScreen()
             }
         }
     }

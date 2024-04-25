@@ -57,7 +57,7 @@
   <tr>
     <td><img src="screenshots/tesla_ui.png" height="500" alt="tesla_ui"/></td>
     <td><img src="screenshots/scoreboard_ui.png" height="500" alt="scoreboard_ui"/></td>
-    <td><img src="screenshots/InstagramProfileScreenUi.png" height="500" alt="scoreboard_ui"/></td>
+    <td><img src="screenshots/insta_profile.png" height="500" alt="scoreboard_ui"/></td>
   </tr>
 </table>
 
