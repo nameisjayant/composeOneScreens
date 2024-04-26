@@ -8,6 +8,17 @@
   jetpack compose.
 - It also focus on the clean and reusable codes.
 
+ ## Packages
+
+- `components`: Includes all the common components here.
+- `feature`: For including any UI.
+    - `screens` : Includes any single screen UI.
+
+## How to Contribute
+
+- If you have any single page complex screen UI , you are most welcome.
+- **Note** :- Before start contributing , please check the remaining screens for code quality and `components` package for the common components.
+
 ## 🖥️ Screenshots
 
 <table style="width:100%">
@@ -60,17 +71,6 @@
     <td><img src="screenshots/insta_profile.png" height="500" alt="scoreboard_ui"/></td>
   </tr>
 </table>
-
-## Packages
-
-- `components`: Includes all the common components here.
-- `feature`: For including any UI.
-    - `screens` : Includes any single screen UI.
-
-## How to Contribute
-
-- If you have any single page complex screen UI , you are most welcome.
-- **Note** :- Before start contributing , please check the remaining screens for code quality and `components` package for the common components.
 
 ## Find this project useful ? ❤️
 
