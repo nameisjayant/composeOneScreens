@@ -10,7 +10,7 @@
 
  ## Packages
 
-- `components`: Includes all the common components here.
+- `components`: Includes all the common components here , which can used in any screen for eg - Icon , space , Icon Button etc....
 - `feature`: For including any UI.
     - `screens` : Includes any single screen UI.
 
