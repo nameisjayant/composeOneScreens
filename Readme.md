@@ -40,9 +40,9 @@
    <th>Timer UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/chat.png" height="500" alt="chat_ui"/></td>
-    <td><img src="screenshots/instagram.png" height="500" alt="insta_ui"/></td>
-   <td><img src="screenshots/Timer.png" height="500" alt="timer_ui"/></td>
+    <td><img src="screenshots/chat.png" alt="chat_ui"/></td>
+    <td><img src="screenshots/instagram.png"  alt="insta_ui"/></td>
+   <td><img src="screenshots/Timer.png" alt="timer_ui"/></td>
   </tr>
 </table>
 
@@ -53,9 +53,9 @@
     <th>Health UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/twitter_profile.png" height="500" alt="twitter_profile_ui"/></td>
-    <td><img src="screenshots/chatting.png" height="500" alt="chatting_ui"/></td>
-    <td><img src="screenshots/health_ui.png" height="500" alt="health_ui"/></td>
+    <td><img src="screenshots/twitter_profile.png" alt="twitter_profile_ui"/></td>
+    <td><img src="screenshots/chatting.png" alt="chatting_ui"/></td>
+    <td><img src="screenshots/health_ui.png" alt="health_ui"/></td>
   </tr>
 </table>
 
@@ -66,9 +66,9 @@
     <th>Instagram Profile screen UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/tesla_ui.png" height="500" alt="tesla_ui"/></td>
-    <td><img src="screenshots/scoreboard_ui.png" height="500" alt="scoreboard_ui"/></td>
-    <td><img src="screenshots/insta_profile.png" height="500" alt="scoreboard_ui"/></td>
+    <td><img src="screenshots/tesla_ui.png"  alt="tesla_ui"/></td>
+    <td><img src="screenshots/scoreboard_ui.png"  alt="scoreboard_ui"/></td>
+    <td><img src="screenshots/insta_profile.png"  alt="scoreboard_ui"/></td>
   </tr>
 </table>
 
