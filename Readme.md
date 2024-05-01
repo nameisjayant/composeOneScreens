@@ -21,7 +21,7 @@
 
 ## 🖥️ Screenshots
 
-<table style="width:100%">
+<table>
   <tr>
     <th>Task Management UI</th>
     <th>NFT Mobile UI</th>
