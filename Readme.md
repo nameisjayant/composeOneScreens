@@ -21,16 +21,16 @@
 
 ## 🖥️ Screenshots
 
-<table>
+<table style="width:100%">
   <tr>
     <th>Task Management UI</th>
     <th>NFT Mobile UI</th>
     <th>Electric Car Charging UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/taskManagement.png" height="500" alt="task_management"/></td>
-    <td><img src="screenshots/NFT.png" height="500" alt="nft_mobile"/></td>
-    <td><img src="screenshots/electric_car.png" height="500" alt="electric+_car"/></td>
+    <td><img src="screenshots/taskManagement.png" alt="task_management"/></td>
+    <td><img src="screenshots/NFT.png"  alt="nft_mobile"/></td>
+    <td><img src="screenshots/electric_car.png"  alt="electric+_car"/></td>
   </tr>
 </table>
 <table style="width:100%">
