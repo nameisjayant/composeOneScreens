@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.nameisjayant.composeprojects.features.screens.InstagramProfileScreen
+import com.nameisjayant.composeprojects.features.screens.ShoesScreen
 import com.nameisjayant.composeprojects.ui.theme.ComposeProjectsTheme
 
 class MainActivity : ComponentActivity() {
@@ -11,7 +12,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeProjectsTheme {
-                InstagramProfileScreen()
+                ShoesScreen()
             }
         }
     }

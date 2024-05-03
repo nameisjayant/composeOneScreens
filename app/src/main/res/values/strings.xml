@@ -102,4 +102,22 @@
     <string name="followed_by">"Followed by "</string>
     <string name="others">%1$s others</string>
     <string name="and_">" and "</string>
+    <string name="wallet_balance">Wallet balance</string>
+    <string name="rp1_000_000">Rp1,0000.000</string>
+    <string name="top_up_balance">Top up balance</string>
+    <string name="top_up">Top up</string>
+    <string name="search_items">Search items..</string>
+    <string name="footwear">Footwear</string>
+    <string name="bags">Bags</string>
+    <string name="apparel">Apparel</string>
+    <string name="air_legging_sport">AIR LEGGING SPORT</string>
+    <string name="rp200_000">Rp200.000</string>
+    <string name="aero_sport_infinity_max">aero sport infinity MAX</string>
+    <string name="rp450_000">Rp450.000</string>
+    <string name="for_you">For You</string>
+    <string name="sport_runner_blue_edition">Sport+ runner blue edition</string>
+    <string name="rp250_000">Rp250.000</string>
+    <string name="sport_bag">sport+ bag</string>
+    <string name="rp350_000">Rp350.000</string>
+    <string name="shop_by_category">Shop By Category</string>
 </resources>

@@ -80,6 +80,9 @@ fun ComposeProjectsTheme(
             // Instagram Profile Screen status color
             window.statusBarColor = Color.White.toArgb()
 
+            // Shoes Screen status color
+            window.statusBarColor = Orange.toArgb()
+
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
