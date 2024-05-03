@@ -82,6 +82,7 @@
     <td><img src="screenshots/shoes_app.png" alt="shoes_ui" height="500"/></td>
   </tr>
 </table>
+
 ## Find this project useful ? ❤️
 
 - Support it by clicking the ⭐️ button on the upper right of this page. ✌️
