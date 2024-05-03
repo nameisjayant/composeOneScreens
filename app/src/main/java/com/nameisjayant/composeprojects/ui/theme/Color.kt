@@ -130,3 +130,11 @@ val ScoreLinearGradient = Brush.linearGradient(
         Color(0XFFED6B4E)
     )
 )
+
+// Shoes Screen Colors
+val Orange = Color(0XFFF26522)
+val Neutral20 = Color(0XFFF6F6F6)
+val Neutral40 = Color(0XFFE3E3E3)
+val Neutral80 = Color(0XFF6C6C6C)
+val TextColor_1 = Color(0XFF262626)
+val Black10 = Color(0XFF4D4D4D)
