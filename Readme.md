@@ -8,16 +8,18 @@
   jetpack compose.
 - It also focus on the clean and reusable codes.
 
- ## Packages
+## Packages
 
-- `components`: Includes all the common components here , which can used in any screen for eg - Icon , space , Icon Button etc....
+- `components`: Includes all the common components here , which can used in any screen for eg -
+  Icon , space , Icon Button etc....
 - `feature`: For including any UI.
     - `screens` : Includes any single screen UI.
 
 ## How to Contribute
 
 - If you have any single page complex screen UI , you are most welcome.
-- **Note** :- Before start contributing , please check the remaining screens for code quality and `components` package for the common components.
+- **Note** :- Before start contributing , please check the remaining screens for code quality
+  and `components` package for the common components.
 
 ## 🖥️ Screenshots
 
@@ -77,7 +79,7 @@
     <th>Shoes App UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/shoes_app.png" height="500" alt="shoes_ui"/></td>
+    <td><img src="screenshots/shoes_app.png" alt="shoes_ui"/></td>
   </tr>
 </table>
 ## Find this project useful ? ❤️
