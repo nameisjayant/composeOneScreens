@@ -79,7 +79,7 @@
     <th>Shoes App UI</th>
   </tr>
   <tr>
-    <td><img src="screenshots/shoes_app.png" alt="shoes_ui"/></td>
+    <td><img src="screenshots/shoes_app.png" alt="shoes_ui" height="500"/></td>
   </tr>
 </table>
 ## Find this project useful ? ❤️
