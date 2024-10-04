@@ -13,10 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.nameisjayant.composeprojects.features.main.data.MainData
 import com.nameisjayant.composeprojects.features.main.data.MainDataObject
+import com.nameisjayant.composeprojects.navigation.LocalNavigator
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
-
+    val navigator = LocalNavigator.current
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
@@ -27,7 +28,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
             items = MainDataObject.getMainDataList()
         ) { _, item ->
             ScreenButton(data = item) {
-
+                navigator.navigate(it)
             }
         }
     }
